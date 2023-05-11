@@ -13,6 +13,13 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @Configuration
 public class AppConfig {
 
+	/**
+	 * This function configures the Spring Security filter chain for a Java application, including session
+	 * management, CSRF protection, request authorization, and JWT token generation and validation.
+	 * 
+	 * @param http The HttpSecurity object used to configure Spring Security.
+	 * @return A SecurityFilterChain object is being returned.
+	 */
 	@Bean
 	public SecurityFilterChain springSecurityConfiguration(HttpSecurity http) throws Exception {
 
@@ -34,6 +41,12 @@ public class AppConfig {
 
 	}
 
+	/**
+	 * This function returns a BCryptPasswordEncoder object used for password encoding in Java.
+	 * 
+	 * @return A new instance of the BCryptPasswordEncoder class, which is a PasswordEncoder used for
+	 * encoding and decoding passwords using the BCrypt hashing algorithm.
+	 */
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 
