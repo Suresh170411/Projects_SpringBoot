@@ -23,4 +23,7 @@ public class Account {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Customer customer;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+	private List<Transaction> transactions = new ArrayList<>();
 }

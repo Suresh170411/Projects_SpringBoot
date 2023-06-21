@@ -18,6 +18,8 @@ public class Transaction {
 	private Timestamp timestamp;
 	
 	/** Relational Mappings */
-	
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Account account;
 
 }
