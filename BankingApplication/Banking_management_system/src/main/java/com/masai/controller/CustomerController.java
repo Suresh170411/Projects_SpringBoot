@@ -25,7 +25,7 @@ public class CustomerController {
 		
 		customer.setPassword(encoder.encode(customer.getPassword()));
 		
-		Customer registeredCustomer= customerService.addCustomer(customer);
+		Customer registeredCustomer = customerService.addCustomer(customer);
 		
 		return new ResponseEntity<>(registeredCustomer,HttpStatus.CREATED);
 		
