@@ -26,4 +26,7 @@ public class Account {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
 	private List<Transaction> transactions = new ArrayList<>();
+
+	@OneToOne(cascade = CascadeType.ALL)
+	private Branch branch;
 }
