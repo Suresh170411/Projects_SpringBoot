@@ -1,5 +1,6 @@
 package com.masai.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,6 +24,7 @@ public class Customer {
 	
 	/** Relational Mappings */
 
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
 	private Account account;
 }

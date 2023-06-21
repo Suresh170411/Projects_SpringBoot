@@ -1,10 +1,13 @@
 package com.masai.service;
 
+import com.masai.exceptions.CustomerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.model.Customer;
 import com.masai.repository.CustomerRepository;
+
+import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -14,8 +17,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer addCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
+		return  null;
 	}
 
 	@Override
@@ -23,6 +25,17 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+	@Override
+	public List<Customer> getAllCustomers() throws CustomerException {
+		List<Customer> customers = customerRepo.findAll();
+
+		if (customers.isEmpty()) {
+			throw new CustomerException("There is no customer found !");
+		}
+
+		return customers;
+	}
+
+
 }
