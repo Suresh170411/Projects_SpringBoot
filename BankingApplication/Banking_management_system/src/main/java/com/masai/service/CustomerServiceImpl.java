@@ -8,6 +8,7 @@ import com.masai.model.Customer;
 import com.masai.repository.CustomerRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -17,14 +18,21 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer addCustomer(Customer customer) {
-		return  null;
+		return  customerRepo.save(customer);
 	}
 
 	@Override
-	public Customer getByCustomerId(Integer customerId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Customer getByCustomerId(Integer customerId) throws CustomerException {
+		
+		Optional<Customer> optional = customerRepo.findById(customerId);
+		
+		if (optional.isEmpty()) {
+			throw new CustomerException("No customer found with this Id!");
+		}
+		
+		return optional.get();
 	}
+
 
 	@Override
 	public List<Customer> getAllCustomers() throws CustomerException {
@@ -36,6 +44,5 @@ public class CustomerServiceImpl implements CustomerService {
 
 		return customers;
 	}
-
 
 }
