@@ -20,6 +20,7 @@ public class Account {
 	private Date created_at;
 	
 	/** Relational Mappings */
-	
 
+	@OneToOne(cascade = CascadeType.ALL)
+	private Customer customer;
 }

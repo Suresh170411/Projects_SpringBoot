@@ -22,6 +22,7 @@ public class Customer {
 	private String password;
 	
 	/** Relational Mappings */
-	
 
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
+	private Account account;
 }
