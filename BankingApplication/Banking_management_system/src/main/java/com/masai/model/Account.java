@@ -1,13 +1,10 @@
 package com.masai.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -27,9 +24,9 @@ public class Account {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Customer customer;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "account")
 	private Branch branch;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "account")
-	private Transaction transaction;
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
+	private List<Transaction> transactions = new ArrayList<>();
 }

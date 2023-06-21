@@ -2,12 +2,7 @@ package com.masai.model;
 
 import java.sql.Timestamp;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -24,6 +19,9 @@ public class Transaction {
 	
 	/** Relational Mappings */
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Account account;
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Customer customer;
 }
