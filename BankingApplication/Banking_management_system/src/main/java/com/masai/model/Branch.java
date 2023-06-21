@@ -1,5 +1,7 @@
 package com.masai.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,7 @@ public class Branch {
 	
 	/** Relational Mappings */
 
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "branch")
 	private Account account;
 }
