@@ -21,12 +21,5 @@ public class Account {
 	
 	/** Relational Mappings */
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Customer customer;
-	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "account")
-	private Branch branch;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
-	private List<Transaction> transactions = new ArrayList<>();
+
 }

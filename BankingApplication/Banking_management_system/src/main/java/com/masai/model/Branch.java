@@ -22,6 +22,5 @@ public class Branch {
 	
 	/** Relational Mappings */
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "branch")
-	private Account account;
+
 }

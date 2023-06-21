@@ -19,9 +19,5 @@ public class Transaction {
 	
 	/** Relational Mappings */
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Account account;
 
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Customer customer;
 }

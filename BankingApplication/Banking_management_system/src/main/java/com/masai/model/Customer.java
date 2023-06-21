@@ -23,9 +23,5 @@ public class Customer {
 	
 	/** Relational Mappings */
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
-	private Account account;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-	private List<Transaction> transactions = new ArrayList<>();
 }
